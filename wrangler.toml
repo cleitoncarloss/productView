@@ -1,2 +1,5 @@
-bucket = "./dist"
-entry-point = "."
+name = "product-view"
+compatibility_date = "2025-08-07"
+
+[assets]
+directory = "./dist"

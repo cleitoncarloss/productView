@@ -1,5 +1,6 @@
 name = "product-view"
 compatibility_date = "2025-08-07"
 
-[assets]
+[site]
 directory = "./dist"
+entry-point = "."

@@ -1,7 +1,7 @@
 <x-header>
-  <x-button variant="link">
+  <x-button name="back" variant="link">
     <x-icon use="arrow_left_alt"></x-icon>
-    <x-redirect href="/" on="x-button/click:method/go"></x-redirect>
+    <x-redirect href="/" on="back/click:method/go"></x-redirect>
   </x-button>
 </x-header>
 
@@ -9,12 +9,12 @@
   <x-stack style="height:calc(100vh - 144px)" align="center" justify="center">
     <x-render style="align-items: center">
       <template>
-        <x-card width="md">
+        <x-card width="fill">
           <x-stack direction="column" width="fill">
             <x-stack align="center" justify="center" width="fill">
               <img src="{image}" height="200px" width="200px" />
             </x-stack>
-            <x-stack direction="column" width="fill">
+            <x-stack align="center" direction="column" width="fill">
               <x-heading size="sm" weight="bold">{title}</x-heading>
               <x-text color="secondary" size="xl">R$ {price}</x-text>
             </x-stack>

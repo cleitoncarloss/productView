@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Produtos</title>
+    <link href="https://cdn.jsdelivr.net/npm/@nodusjs/x@0.23.7/dist/x.css" rel="stylesheet" async />
+    <style>
+      :not(:defined) {
+        visibility: hidden;
+      }
+
+      body {
+        transition: all 0.2s ease-out;
+      }
+    </style>
+  </head>
+  <body>
+
+    <x-include>
+      <x-route path="/" src="/home.html"></x-route>
+      <x-route path="/product/:id" src="/product.html"></x-route>
+    </x-include>
+
+    <script src="https://cdn.jsdelivr.net/npm/@nodusjs/x@0.23.7/dist/x.js" type="module" async></script>
+  </body>
+</html>

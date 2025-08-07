@@ -1,0 +1,49 @@
+<x-title>Produtos</x-title>
+<x-stack direction="column">
+  <x-header>
+    <x-heading>Logo</x-heading>
+  </x-header>
+
+  <x-container>
+    <x-stack direction="column" width="fill">
+      <x-form width="fill">
+        <template>
+          <x-input width="100%">
+            <x-label>Buscar produto</x-label>
+          </x-input>
+        </template>
+      </x-form>
+
+      <x-render layout="grid">
+        <template>
+          <x-input name="id" value="{id}" hidden></x-input>
+          <x-card style="justify-content: center;" width="fill">
+            <x-stack align="center" justify="center" direction="column" width="fill">
+              <img src="{image}" height="100px" width="100px" />
+              <x-text align="center" weight="semibold">{title}</x-text>
+              <x-stack justify="center" width="fill">
+                <x-text color="secondary">R$ {price}</x-text>
+                <x-text color="success-primary">20% OFF</x-text>
+              </x-stack>
+              <a href="/product/{id}" style="width: 100%">
+                <x-button width="fill">Comprar agora</x-button>
+              </a>
+            </x-stack>
+          </x-card>
+        </template>
+        <x-on value="x-dataset/change:method/render"></x-on>
+        <x-on value="x-dataset/like:method/render"></x-on>
+      </x-render>
+    </x-stack>
+  </x-container>
+</x-stack>
+
+<x-fetch name="product" url="https://fakestoreapi.com/products">
+  <x-on value="x-macro/ok:method/get"></x-on>
+  <x-macro autorun></x-macro>
+</x-fetch>
+
+<x-dataset upsert="id">
+  <x-on value="x-fetch/ok:method/push"></x-on>
+  <x-like key="title" on="x-input/change:attribute/value"></x-like>
+</x-dataset>
